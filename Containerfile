@@ -1,3 +1,5 @@
+LABEL org.opencontainers.image.source=https://github.com/webgtx/satchel
+
 FROM fedora:40
 WORKDIR /root
 COPY ./tmux.conf .tmux.conf
