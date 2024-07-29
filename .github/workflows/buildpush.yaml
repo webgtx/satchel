@@ -14,4 +14,4 @@ jobs:
       - uses: docker/build-push-action@v3
         with:
           push: true
-          tags: "satchel:latest"
+          tags: "ghcr.io/webgtx/satchel:latest"
