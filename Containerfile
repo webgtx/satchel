@@ -1,5 +1,3 @@
-LABEL org.opencontainers.image.source=https://github.com/webgtx/satchel
-
 FROM fedora:40
 WORKDIR /root
 COPY ./tmux.conf .tmux.conf
@@ -18,4 +16,5 @@ RUN dnf install -y \
   netcat 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 COPY ./zshrc .zshrc
+LABEL org.opencontainers.image.source=https://github.com/webgtx/satchel
 ENTRYPOINT ["/bin/zsh"]
