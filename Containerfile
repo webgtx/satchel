@@ -15,7 +15,8 @@ RUN dnf install -y \
   wget \ 
   netcat \
   fzf \
-  python3-pip
+  python3-pip \
+  ansible
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 COPY ./zshrc .zshrc
 LABEL org.opencontainers.image.source=https://github.com/webgtx/satchel
