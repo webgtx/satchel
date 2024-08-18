@@ -25,4 +25,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: "ghcr.io/webgtx/satchel:${{ $BRANCH_IMAGE_TAG }}"
+          tags: "ghcr.io/webgtx/satchel:${{ github.branch_image_name }}"
