@@ -11,7 +11,7 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GH_PAT }}
       - name: Push latest stable image 
-        if: ${{ github.ref_name == "master" }}
+        if: ${{ github.ref_name == 'master' }}
         uses: docker/build-push-action@v3
         with:
           push: true
