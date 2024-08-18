@@ -16,9 +16,13 @@ jobs:
         with:
           push: true
           tags: "ghcr.io/webgtx/satchel:latest"
+      - name: Generate branch image tag
+        if: ${{ github.ref_name != 'master' }}
+        run: echo "BRANCH_IMAGE_TAG=${GITHUB_REF_NAME/*\//}" >> $GITHUB_ENV 
+
       - name: Push branch image
         if: ${{ github.ref_name != 'master' }}
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: "ghcr.io/webgtx/satchel:${{ github.ref_name }}"
+          tags: "ghcr.io/webgtx/satchel:${{ $BRANCH_IMAGE_TAG }}"
