@@ -1,4 +1,5 @@
 FROM fedora:40
+LABEL com.github.containers.toolbox="true"
 WORKDIR /root
 COPY ./tmux.conf .tmux.conf
 COPY ./kubernetes.repo /etc/yum.repos.d/
