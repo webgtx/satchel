@@ -17,7 +17,7 @@ jobs:
           push: true
           tags: "ghcr.io/webgtx/satchel:latest"
       - name: Push branch image
-        if: ${{ github.ref_name != "master" }}
+        if: ${{ github.ref_name != 'master' }}
         uses: docker/build-push-action@v3
         with:
           push: true
