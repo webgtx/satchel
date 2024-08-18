@@ -4,8 +4,6 @@ ARG VERSION=1
 LABEL com.github.containers.toolbox="true" \
       name="$NAME" \
       version="$VERSION"
-COPY ./tmux.conf .tmux.conf
-COPY ./kubernetes.repo /etc/yum.repos.d/
 RUN dnf install -y \
   vim \
   tmux \
@@ -22,6 +20,7 @@ RUN dnf install -y \
   python3-pip \
   ansible \
   make
+COPY ./tmux.conf .tmux.conf
+COPY ./kubernetes.repo /etc/yum.repos.d/
 COPY ./zshrc .zshrc
 LABEL org.opencontainers.image.source=https://github.com/webgtx/satchel
-ENTRYPOINT ["/bin/zsh"]
