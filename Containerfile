@@ -1,5 +1,9 @@
-FROM registry.fedoraproject.org/fedora-toolbox:40
-LABEL com.github.containers.toolbox="true"
+FROM fedora:rawhide 
+ARG NAME=satchel
+ARG VERSION=1
+LABEL com.github.containers.toolbox="true" \
+      name="$NAME" \
+      version="$VERSION"
 COPY ./tmux.conf .tmux.conf
 COPY ./kubernetes.repo /etc/yum.repos.d/
 RUN dnf install -y \
