@@ -1,6 +1,5 @@
 on:
   push:
-    branches: ["master"]
   
 jobs:
   build-push:
@@ -11,7 +10,15 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GH_PAT }}
-      - uses: docker/build-push-action@v3
-        with:
-          push: true
-          tags: "ghcr.io/webgtx/satchel:latest"
+      - name: Push latest stable image 
+        uses: docker/build-push-action@v3
+          with:
+            push: true
+            tags: "ghcr.io/webgtx/satchel:latest"
+        if: ${{ github.ref_name == "master" }}
+      - name: Push branch image
+        uses: docker/build-push-action@v3
+          with:
+            push: true
+            tags: "ghcr.io/webgtx/satchel:${{ github.ref_name }}"
+        if: ${{ github.ref_name != "master" }}

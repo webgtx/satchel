@@ -1,6 +1,5 @@
-FROM fedora:40
+FROM registry.fedoraproject.org/fedora-toolbox:40
 LABEL com.github.containers.toolbox="true"
-WORKDIR /root
 COPY ./tmux.conf .tmux.conf
 COPY ./kubernetes.repo /etc/yum.repos.d/
 RUN dnf install -y \
@@ -19,7 +18,6 @@ RUN dnf install -y \
   python3-pip \
   ansible \
   make
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 COPY ./zshrc .zshrc
 LABEL org.opencontainers.image.source=https://github.com/webgtx/satchel
 ENTRYPOINT ["/bin/zsh"]
