@@ -3,7 +3,12 @@ ARG NAME=satchel
 ARG VERSION=1
 LABEL com.github.containers.toolbox="true" \
       name="$NAME" \
-      version="$VERSION"
+      version="$VERSION" \
+      org.opencontainers.image.source=https://github.com/webgtx/satchel
+COPY ./tmux.conf .tmux.conf
+COPY ./kubernetes.repo /etc/yum.repos.d/
+COPY ./zshrc .zshrc
+
 RUN dnf install -y \
   vim \
   tmux \
@@ -14,13 +19,9 @@ RUN dnf install -y \
   bat \
   gh \
   glab \
-  wget \ 
+  wget \
   netcat \
   fzf \
   python3-pip \
   ansible \
   make
-COPY ./tmux.conf .tmux.conf
-COPY ./kubernetes.repo /etc/yum.repos.d/
-COPY ./zshrc .zshrc
-LABEL org.opencontainers.image.source=https://github.com/webgtx/satchel
