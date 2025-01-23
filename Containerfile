@@ -21,5 +21,6 @@ RUN dnf install -y \
   make
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 COPY ./zshrc .zshrc
+COPY ./vimrc .vimrc
 LABEL org.opencontainers.image.source=https://github.com/webgtx/satchel
 ENTRYPOINT ["/bin/zsh"]
