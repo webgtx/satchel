@@ -1,8 +1,6 @@
-FROM fedora:40
+FROM quay.io/fedora/fedora-toolbox:41
 LABEL com.github.containers.toolbox="true"
 WORKDIR /root
-COPY ./tmux.conf .tmux.conf
-COPY ./kubernetes.repo /etc/yum.repos.d/
 RUN dnf install -y \
   vim \
   tmux \
@@ -19,8 +17,5 @@ RUN dnf install -y \
   python3-pip \
   ansible \
   make
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-COPY ./zshrc .zshrc
-COPY ./vimrc .vimrc
+ENV SHELL="/bin/zsh"
 LABEL org.opencontainers.image.source=https://github.com/webgtx/satchel
-ENTRYPOINT ["/bin/zsh"]
