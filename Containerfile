@@ -17,5 +17,5 @@ RUN dnf install -y \
   python3-pip \
   ansible \
   make
-ENV SHELL="/bin/zsh"
+ENV SHELL="/usr/bin/zsh"
 LABEL org.opencontainers.image.source=https://github.com/webgtx/satchel
