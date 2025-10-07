@@ -2,9 +2,10 @@
 " https://alex.zolotarov.me
 " alex@zolotarov.email
 "
-" colorscheme industry
+colorscheme one
 filetype plugin on
 
+set background=dark
 set nocompatible
 set autoindent
 set expandtab shiftwidth=4 tabstop=4
@@ -34,12 +35,16 @@ inoremap jk <esc>l
 nnoremap <leader>b :Buffers<cr>
 
 " [ VimWiki]
+let g:vimwiki_path = "~/Documents/knowledge"
 let g:vimwiki_list = [{"syntax": "markdown",
                      \ "ext": "md",
-                     \ "path": "~/Documents/knowledge"}]
+                     \ "path": g:vimwiki_path}]
+
+nnoremap <leader>wf :execute ":Files" . g:vimwiki_path<cr>
 
 " Restrict VimWiki only to the path
 let g:vimwiki_global_ext = 0
+
 
 " [ NerdTree ]"
 " nnoremap <leader><tab> :Explore<cr><C-w>40<<cr>
