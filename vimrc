@@ -1,11 +1,11 @@
 " Copyright 2024 Alex Zolotarov, all right reserved.
 " https://alex.zolotarov.me
 " alex@zolotarov.email
+"
+" colorscheme industry
+filetype plugin on
 
-colorscheme one
-set background=dark
-" hi Normal ctermbg=NONE
-
+set nocompatible
 set autoindent
 set expandtab shiftwidth=4 tabstop=4
 set number numberwidth=2
@@ -27,11 +27,19 @@ iabbrev ccopy Copyright 2024 Alex Zolotarov, all right reserved.
 
 let mapleader = " "
 
-inoremap <esc> <nop>
 inoremap jk <esc>l
+" inoremap <esc> <nop>
 
 " [ Buffer Actions ]
 nnoremap <leader>b :Buffers<cr>
+
+" [ VimWiki]
+let g:vimwiki_list = [{"syntax": "markdown",
+                     \ "ext": "md",
+                     \ "path": "~/Documents/knowledge"}]
+
+" Restrict VimWiki only to the path
+let g:vimwiki_global_ext = 0
 
 " [ NerdTree ]"
 " nnoremap <leader><tab> :Explore<cr><C-w>40<<cr>
@@ -49,7 +57,7 @@ let g:completor_filetype_map = {'go':   {'ft': 'lsp', 'cmd': 'gopls'}}
 
 " [ Closing brackets ]
 inoremap " ""<left>
-inoremap ' ''<left>
+" inoremap ' ''<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
