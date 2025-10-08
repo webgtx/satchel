@@ -2,10 +2,10 @@
 " https://alex.zolotarov.me
 " alex@zolotarov.email
 "
-colorscheme one
+" colorscheme industry
 filetype plugin on
 
-set background=dark
+" set background=dark
 set nocompatible
 set autoindent
 set expandtab shiftwidth=4 tabstop=4
