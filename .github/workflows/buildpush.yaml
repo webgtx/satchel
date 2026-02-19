@@ -1,10 +1,10 @@
 on:
   push:
     branches: ["master"]
-  
+
 jobs:
   build-push:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
     permissions:
       packages: write
     steps:
@@ -17,3 +17,5 @@ jobs:
         with:
           push: true
           tags: "ghcr.io/webgtx/satchel:latest"
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
