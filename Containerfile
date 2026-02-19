@@ -1,21 +1,37 @@
-FROM quay.io/fedora/fedora-toolbox:41
+FROM quay.io/fedora/fedora-toolbox:42
 LABEL com.github.containers.toolbox="true"
-WORKDIR /root
+COPY *.repo /etc/yum.repos.d/
 RUN dnf install -y \
+  # Terminal Core Tools
   vim \
   tmux \
   zsh \
-  kubectl \
-  helm \
   ranger \
   bat \
+  fzf \
+  # Version Control
   gh \
   glab \
-  wget \ 
-  netcat \
-  fzf \
-  python3-pip \
+  # Cloud
+  doctl \
+  azure-cli \
+  # Infrastructure & Automation
+  helm \
+  kubectl \
   ansible \
-  make
+  terraform \
+  opentofu \
+  make \
+  # Promgramming
+  python3-pip \
+  clang \
+  rust \
+  nodejs \
+  golang \
+  gopls \
+  # Networking & Utilities
+  wget \
+  netcat
+  
 ENV SHELL="/usr/bin/zsh"
 LABEL org.opencontainers.image.source=https://github.com/webgtx/satchel
