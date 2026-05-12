@@ -1,4 +1,4 @@
-FROM quay.io/fedora/fedora-toolbox:44
+FROM quay.io/fedora/fedora-toolbox:43
 LABEL com.github.containers.toolbox="true"
 COPY *.repo /etc/yum.repos.d/
 RUN dnf install -y \
