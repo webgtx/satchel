@@ -9,12 +9,14 @@ RUN dnf install -y \
   ranger \
   bat \
   fzf \
+
   # Version Control
   gh \
   glab \
   # Cloud
   doctl \
   azure-cli \
+
   # Infrastructure & Automation
   helm \
   kubectl \
@@ -22,6 +24,7 @@ RUN dnf install -y \
   terraform \
   opentofu \
   make \
+
   # Promgramming
   python3-pip \
   clang \
@@ -29,9 +32,9 @@ RUN dnf install -y \
   nodejs \
   golang \
   gopls \
+
   # Networking & Utilities
   wget \
   netcat
   
-ENV SHELL="/usr/bin/zsh"
 LABEL org.opencontainers.image.source=https://github.com/webgtx/satchel
